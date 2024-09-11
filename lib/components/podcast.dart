@@ -22,7 +22,6 @@ class Podcast extends StatelessWidget{
         ),
         Container(
           padding: const EdgeInsets.only(left: 20.0),
-
           child: const Column(
             crossAxisAlignment: CrossAxisAlignment.start, // 两端对齐
             children: [
@@ -37,10 +36,7 @@ class Podcast extends StatelessWidget{
               )
             ],
           ),
-        )
-
-
-      ],
+        )],
     ),);
   }
 

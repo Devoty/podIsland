@@ -38,6 +38,9 @@ dependencies:
   flutter_svg: ^2.0.10+1
 #  persistent_bottom_nav_bar: ^6.2.1
   salomon_bottom_bar: ^3.3.2
+  dart_rss: ^3.0.3
+  http: ^1.2.2
+  xml: ^6.5.0
 
 dev_dependencies:
   flutter_test:

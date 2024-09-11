@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../pages/podcasts.dart';
+import '../router/router.dart';
+import '../rss/rss_parser.dart';
+
 class HomePageBar extends StatefulWidget{
   const  HomePageBar({super.key});
 
@@ -27,26 +31,65 @@ class HomePageBarState extends State<HomePageBar>{
                 Text("Find this week's trending podcasts")
               ],
             ),
-            Container(
-              width: 40.0,
-              height: 40.0,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle, // 圆形
-                border: Border.all(
-                  color: Colors.grey.shade300, // 边框颜色
-                  width: 1.0, // 边框宽度
+            GestureDetector(
+              onTap: () {
+
+                _showSimpleDialog(context);
+
+
+              },
+              child: Container(
+                width: 40.0,
+                height: 40.0,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle, // 圆形
+                  border: Border.all(
+                    color: Colors.grey.shade300, // 边框颜色
+                    width: 1.0, // 边框宽度
+                  ),
+                ),
+                child: Center(
+                  child: SvgPicture.asset(searchIcon,
+                    width: 20.0,
+                    height: 20.0,
+                  ),
                 ),
               ),
-              child: Center(
-                child: SvgPicture.asset(
-                  searchIcon,
-                  width: 20.0,
-                  height: 20.0,
-                ),
-              ),
-            )
+            ),
+
           ],
         ));
   }
+}
 
+void _showSimpleDialog(BuildContext context) {
+
+  final controller = TextEditingController();
+  controller.text = "https://techfusionfm.com/podcast.xml";
+
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text('播客RSS URL'),
+        content: TextField(
+          controller: controller,
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: const Text('确定'),
+            onPressed: () {
+
+              parse(controller.text);
+
+              Navigator.of(context).pop();
+              // 使用Navigator.push跳转到新页面
+              // RouteManager.generateRoute(RouteSettings(name :"/details" ));
+              Navigator.push(context, RouteManager.generateRoute(RouteSettings(name :"/details" )));
+            },
+          ),
+        ],
+      );
+    },
+  );
 }

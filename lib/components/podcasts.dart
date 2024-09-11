@@ -30,7 +30,6 @@ class Podcasts extends StatelessWidget{
                 padding: const EdgeInsets.all(16.0),
                 color: Colors.grey.shade200,
                 child: const Column(
-
                   crossAxisAlignment: CrossAxisAlignment.start, // 两端对齐
                   children: [
                     Text('音乐小巷', style: h2TextStyle,),

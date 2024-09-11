@@ -1,19 +1,40 @@
 import 'package:flutter/material.dart';
 
+import '../components/bottom_bar.dart';
 import '../components/podcast.dart';
 import '../components/home_page_bar.dart';
 import '../components/podcasts.dart';
 import '../components/text.dart';
 
-class HomePage extends StatefulWidget{
-  const HomePage({super.key});
+
+class HomePage extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+  return  Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: HomePage1(),
+            ),
+            BottomBar(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+class HomePage1 extends StatefulWidget{
+  const HomePage1({super.key});
 
   @override
-  State<StatefulWidget> createState() => HomePageState();
+  State<StatefulWidget> createState() => HomePage1State();
 
 }
 
-class HomePageState extends State<HomePage>{
+class HomePage1State extends State<HomePage1>{
   @override
   Widget build(BuildContext context) {
     return Column(children: [
