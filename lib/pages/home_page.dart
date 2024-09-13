@@ -8,9 +8,11 @@ import '../components/text.dart';
 
 
 class HomePage extends StatelessWidget{
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
-  return  Scaffold(
+  return const Scaffold(
       body: SafeArea(
         child: Column(
           children: <Widget>[

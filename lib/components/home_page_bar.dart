@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'dart:io';
 
-import '../pages/podcasts.dart';
+import 'package:flutter/material.dart';
+import 'package:pod_island/components/text.dart';
+
 import '../router/router.dart';
 import '../rss/rss_parser.dart';
 
@@ -13,7 +14,7 @@ class HomePageBar extends StatefulWidget{
 
 }
 
-const String searchIcon = 'images/search.svg';
+const String searchIcon = 'assets/icon/plus_icon.svg';
 
 class HomePageBarState extends State<HomePageBar>{
   @override
@@ -23,38 +24,23 @@ class HomePageBarState extends State<HomePageBar>{
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween, // 两端对齐
           children: [
-            const Column(
-              crossAxisAlignment: CrossAxisAlignment.start, // 两端对齐
+            Row(
               children: [
-                Text('Hey Devoty!', style: TextStyle(color: Colors.black, fontSize: 18),),
-                // SizedBox(height: 10,),
-                Text("Find this week's trending podcasts")
+                Image.asset('assets/adventurer/adventurer_default.png', width: 50, height: 50,),
+                const SizedBox(width: 20,),
+                const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start, // 两端对齐
+                  children: [
+                    Text('Good Morning 👋', style: TextStyle(color: Colors.black, fontSize: 18),),
+                    Text("Devoty !")
+                  ],
+                ),
               ],
             ),
+
             GestureDetector(
-              onTap: () {
-
-                _showSimpleDialog(context);
-
-
-              },
-              child: Container(
-                width: 40.0,
-                height: 40.0,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle, // 圆形
-                  border: Border.all(
-                    color: Colors.grey.shade300, // 边框颜色
-                    width: 1.0, // 边框宽度
-                  ),
-                ),
-                child: Center(
-                  child: SvgPicture.asset(searchIcon,
-                    width: 20.0,
-                    height: 20.0,
-                  ),
-                ),
-              ),
+              onTap: () {_showSimpleDialog(context);},
+              child: icon38(searchIcon)
             ),
 
           ],
