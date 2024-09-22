@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../components/bottom_bar.dart';
-import '../components/podcast.dart';
+import '../components/pod_episode.dart';
 import '../components/home_page_bar.dart';
-import '../components/podcasts.dart';
-import '../components/text.dart';
 
 
 class HomePage extends StatelessWidget{
@@ -41,47 +39,103 @@ class HomePage1State extends State<HomePage1>{
   Widget build(BuildContext context) {
     return Column(children: [
       const HomePageBar(),
-      Expanded(
-        flex: 2,
-        child : Container(
-          padding: const EdgeInsets.all(16.0),
-            child: const Column(
-                crossAxisAlignment: CrossAxisAlignment.start, // 两端对齐
-                children: [
-                  Text('Recently Played', style: h1TextStyle,),
-                  Podcast(),
-                  Podcast(),
-                ]
-            ),
-        ),
-      ),
-      Expanded(
-        flex: 3,
-        child : Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(16.0),
-          child: const Column(
-              crossAxisAlignment: CrossAxisAlignment.start, // 两端对齐
-              children: [
-                Text('Popular Podcasts', style: h1TextStyle,),
-                SingleChildScrollView(
-                  scrollDirection : Axis.horizontal,
-                  child: Row(
-                    children: [
-                      Podcasts(),
-                      Podcasts(),
-                      Podcasts(),
-                    ],
-                  ),
-                )
-
-                ]
-            ),
-          ),
-
+      SearchPage(),
+      const Expanded(
+        flex: 1,
+        child : EpisodeScrollView()
       )
     ],);
   }
 
 }
 
+
+class SearchPage extends StatefulWidget {
+  @override
+  _SearchPageState createState() => _SearchPageState();
+}
+
+class _SearchPageState extends State<SearchPage> {
+  TextEditingController _searchController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            TextField(
+              controller: _searchController,
+              decoration: InputDecoration(
+                labelText: 'Search',
+                hintText: 'Enter search term',
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                suffixIcon: IconButton(
+                  icon: Icon(Icons.clear),
+                  onPressed: () {
+                    _searchController.clear();
+                  },
+                ),
+              ),
+              onChanged: (value) {
+                // 处理输入变化
+                print('Search input: $value');
+              },
+              onSubmitted: (value) {
+                // 处理提交搜索操作
+                print('Submitted search: $value');
+              },
+            ),
+            // SizedBox(height: 20),
+            // // 显示搜索结果的地方
+            // Expanded(
+            //   child: Center(
+            //     child: Text('No results'),
+            //   ),
+            // ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+}
+
+class EpisodeScrollView extends StatelessWidget {
+  const EpisodeScrollView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scrollbar( // 显示进度条
+      child: SingleChildScrollView(
+        padding: EdgeInsets.all(16.0),
+        child: Center(
+          child: Column(
+            children:[
+              Episode(),
+              Episode(),
+              Episode(),
+              Episode(),
+              Episode(),
+              Episode(),
+              Episode(),
+              Episode(),
+              Episode(),
+              Episode(),
+            ]
+          ),
+        ),
+      ),
+    );
+  }
+}

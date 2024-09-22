@@ -1,8 +1,7 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:pod_island/components/text.dart';
 
+import '../consts.dart';
 import '../router/router.dart';
 import '../rss/rss_parser.dart';
 
@@ -13,8 +12,6 @@ class HomePageBar extends StatefulWidget{
   State<StatefulWidget> createState() => HomePageBarState();
 
 }
-
-const String searchIcon = 'assets/icon/plus_icon.svg';
 
 class HomePageBarState extends State<HomePageBar>{
   @override

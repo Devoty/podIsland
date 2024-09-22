@@ -16,31 +16,29 @@ class PodCastsDetailPage extends  StatelessWidget{
                   Stack(
 
                     children: [
-                      Image.network(
-                          'https://imagev2.xmcdn.com/group5/M09/20/32/wKgDtlSpSc2x8bxOAAYpq5pgWnY340.jpg!op_type=3&columns=144&rows=144',
-                          width: double.infinity,
-                          height: 280,
-                          fit: BoxFit.cover,
-                          alignment : Alignment.bottomRight
-                      ),
-                      Positioned(
-                        top: 230,  // 根据需求调整按钮位置
-                        left: 10, // 根据需求调整按钮位置
-                        child:  Image.network(
-                            'https://imagev2.xmcdn.com/group5/M09/20/32/wKgDtlSpSc2x8bxOAAYpq5pgWnY340.jpg!op_type=3&columns=144&rows=144',
-                            width: 80,
-                            height: 80,
-                            fit: BoxFit.cover,
-                            alignment : Alignment.bottomRight
-                        ),
-                        ),
+                      // Image.network(
+                      //     'https://imagev2.xmcdn.com/group5/M09/20/32/wKgDtlSpSc2x8bxOAAYpq5pgWnY340.jpg!op_type=3&columns=144&rows=144',
+                      //     width: double.infinity,
+                      //     height: 280,
+                      //     fit: BoxFit.cover,
+                      //     alignment : Alignment.bottomRight
+                      // ),
+                      // Positioned(
+                      //   top: 230,  // 根据需求调整按钮位置
+                      //   left: 10, // 根据需求调整按钮位置
+                      //   child:  Image.network(
+                      //       'https://imagev2.xmcdn.com/group5/M09/20/32/wKgDtlSpSc2x8bxOAAYpq5pgWnY340.jpg!op_type=3&columns=144&rows=144',
+                      //       width: 80,
+                      //       height: 80,
+                      //       fit: BoxFit.cover,
+                      //       alignment : Alignment.bottomRight
+                      //   ),
+                      //   ),
 
 
                     ]
                   ),
-                  Podcasts(),
-                  Podcasts(),
-                  Podcasts(),
+
 
 
                 ],
