@@ -9,9 +9,22 @@ class TextH1 extends StatelessWidget{
     return
       Text(
           text,
+          style: h1TextStyle);
+  }
+}
+
+class TextDesc extends StatelessWidget{
+  const TextDesc(this.text, {super.key});
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return
+      Text(
+          text,
           style: h2TextStyle);
   }
 }
+
 const TextStyle h1TextStyle = TextStyle(
   fontSize: 22.0,
   fontWeight: FontWeight.bold,
